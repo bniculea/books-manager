@@ -2,11 +2,12 @@ name: Deploy to Github Pages
 
 on:
   push:
-    branches:
-      - main # Triggered whenever a push is made to the main branch or via API
+    branches: [ main ]  # Triggered whenever a push is made to the main branch or via API
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
