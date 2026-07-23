@@ -4,6 +4,17 @@
     "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
     "genre": "Fantasy",
-    "status": "Read"
+    "status": "Read",
+    "ISBN": 2321312,
+    "publisher": "Nemira",
+    "series": {
+      "name": "Dune",
+      "bookNumber": 3,
+      "totalInSeries": 6
+    },
+    "collection": {
+      "name": "Mari Clasici ai Literaturii",
+      "volumeNumber": 84
+    }
   }
 ]
