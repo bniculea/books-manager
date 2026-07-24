@@ -12,9 +12,10 @@ const AddBookForm = (props: AddBookFormProps) => {
 
     const [title, setTitle] = useState<string>(props.initialData?.title || '');
     const [author, setAuthor] = useState<string>(props.initialData?.author || '');
-    const [genre, setGenre] = useState<string>(props.initialData?.genre || '');
+    const [genres, setGenres] = useState<Array<string>>(props.initialData?.genres || []);
+    const [cover, setCover] = useState<BookStatus>(props.initialData?.cover || '');
     const [status, setStatus] = useState<BookStatus>(props.initialData?.status || '');
-    const [format, setFormat] = useState<BookFormat>(props.initialData?.format || '');
+    const [formats, setFormats] = useState<Array<BookFormat>>(props.initialData?.formats || []);
     // TODO: add all the fields in the form
     // const [isbn, setIsbn] = useState<string>(props.initialData?.isbn || '');
     // const [publisher, setPublisher] = useState<string>(props.initialData?.publisher || '');
@@ -25,10 +26,11 @@ const AddBookForm = (props: AddBookFormProps) => {
             isbn: "",
             publisher: "",
             author,
-            genre,
+            genres,
             status,
             title,
-            format
+            cover,
+            formats
         })
     }
 
@@ -47,11 +49,15 @@ const AddBookForm = (props: AddBookFormProps) => {
                     </div>
                     <div>
                         <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Genre</label>
-                        <input required type="text" placeholder="Fantasy, Sci-Fi, History" className="w-full border p-2 rounded-lg text-sm" value={genre} onChange={e => setGenre(e.target.value)} />
+                        <input required type="text" placeholder="Fantasy, Sci-Fi, History" className="w-full border p-2 rounded-lg text-sm" value={genres} onChange={e => setGenres((prevGenres) => prevGenres.concat(e.target.value))} />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Format</label>
-                        <input required type="text" placeholder="Epub,Print" className="w-full border p-2 rounded-lg text-sm" value={format} onChange={e => setFormat(e.target.value)} />
+                        <input required type="text" placeholder="Epub,Print" className="w-full border p-2 rounded-lg text-sm" value={formats} onChange={e => setFormats((prevFormats) => prevFormats.concat(e.target.value))} />
+                    </div>
+                    <div>
+                        <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Book Cover</label>
+                        <input required type="text" className="w-full border p-2 rounded-lg text-sm" value={cover} onChange={(e: ChangeEvent<HTMLInputElement>) => setCover(e.target.value)} />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Reading Status</label>

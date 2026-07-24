@@ -16,12 +16,11 @@ export interface Book {
     title: string;
     cover: string;
     author: string;
-    genre: string;
+    genres: Array<string>;
     status: BookStatus;
     isbn: string;
     publisher: string;
     series?: StorySeries | null;
     collection?: PublisherCollection | null;
-    genres: Array<string>;
     formats: Array<BookFormat>;
 }
