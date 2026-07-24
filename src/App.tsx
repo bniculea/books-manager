@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import {SearchIcon, PlusIcon, UserIcon, TagIcon} from "./components/atoms.tsx";
+import {useState, useEffect, useMemo} from 'react';
+import {PlusIcon, UserIcon, TagIcon} from "./components/atoms.tsx";
 import AddBookForm from "./components/forms/AddBookForm";
 import {Book} from "./types/Book.tsx";
+import Search from "./components/search";
+import {BookFilters} from "./components/search/Search.tsx";
 
 
 
 export default function App() {
     const [books, setBooks] = useState<Array<Book>>([]);
-    const [search, setSearch] = useState('');
-    const [selectedGenre, setSelectedGenre] = useState('');
-
+    const [filters, setFilters] = useState<BookFilters>({query: '', format: ''})
     // Form & Auth State
     const [token, setToken] = useState(localStorage.getItem('gh_token') || '');
     const [isOpen, setIsOpen] = useState(false);
@@ -27,16 +27,6 @@ export default function App() {
         localStorage.setItem('gh_token', val);
     };
 
-    // 2. Filter Logic
-    const filteredBooks = books.filter(book => {
-        const titleMatch = book.title?.toLowerCase().includes(search.toLowerCase()) || false;
-        const authorMatch = book.author?.toLowerCase().includes(search.toLowerCase()) || false;
-        const matchesSearch = titleMatch || authorMatch;
-        const matchesGenre = selectedGenre === '' || book.genre === selectedGenre;
-        return matchesSearch && matchesGenre;
-    });
-
-    const genres = [...new Set(books.map(b => b.genre))].filter(Boolean);
     const onSubmit = () => {
         // TODO: call the book service
     }
@@ -44,6 +34,21 @@ export default function App() {
     const onCancel = () => {
         setIsOpen(false);
     }
+
+    const filteredBooks = useMemo(() => {
+        const normalizedQuery = filters?.query?.toLowerCase();
+        return books.filter(book => {
+            const matchesQuery =
+                !filters?.query ||
+                book.title?.toLowerCase().includes(normalizedQuery) ||
+                book.author?.toLowerCase().includes(normalizedQuery);
+
+            const matchesFormat =
+                !filters.format || book.format  === filters.format;
+
+            return matchesQuery && matchesFormat;
+        });
+    }, [books, filters])
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 p-6">
@@ -74,29 +79,7 @@ export default function App() {
                         </button>
                     </div>
                 </header>
-
-                {/* Filters Panel */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <div className="relative flex-1">
-                        <SearchIcon />
-                        <input
-                            type="text"
-                            placeholder="Search by title or author..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                        />
-                    </div>
-                    <select
-                        value={selectedGenre}
-                        onChange={(e) => setSelectedGenre(e.target.value)}
-                        className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white"
-                    >
-                        <option value="">All Genres</option>
-                        {genres.map(g => <option key={g} value={g}>{g}</option>)}
-                    </select>
-                </div>
-
+                <Search filters={filters} onFilterChange={setFilters} />
                 {/* Grid View */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {filteredBooks.map(book => (
@@ -122,7 +105,6 @@ export default function App() {
                     ))}
                 </div>
 
-                {/* Modal for adding books */}
                 {isOpen && <AddBookForm onSubmit={onSubmit} onCancel={onCancel}/>}
 
             </div>
