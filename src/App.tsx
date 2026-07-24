@@ -1,9 +1,10 @@
 import {useState, useEffect, useMemo} from 'react';
-import {PlusIcon, UserIcon, TagIcon} from "./components/atoms.tsx";
+import {PlusIcon } from "./components/atoms.tsx";
 import AddBookForm from "./components/forms/AddBookForm";
 import {Book} from "./types/Book.tsx";
 import Search from "./components/search";
 import {BookFilters} from "./components/search/Search.tsx";
+import BookCard from "./components/cards/book-card";
 
 
 
@@ -44,7 +45,7 @@ export default function App() {
                 book.author?.toLowerCase().includes(normalizedQuery);
 
             const matchesFormat =
-                !filters.format || book.format  === filters.format;
+                !filters.format || book.formats.includes(filters.format);
 
             return matchesQuery && matchesFormat;
         });
@@ -83,25 +84,7 @@ export default function App() {
                 {/* Grid View */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {filteredBooks.map(book => (
-                        <div key={book.id} className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                            <div>
-                <span className="inline-flex items-center gap-1 bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">
-                  <TagIcon /> {book.genre || 'Uncategorized'}
-                </span>
-                                <h3 className="font-bold text-lg text-gray-900 line-clamp-2">{book.title}</h3>
-                                <p className="text-gray-500 text-sm flex items-center gap-1 mt-1">
-                                    <UserIcon /> {book.author}
-                                </p>
-                            </div>
-                            <div className="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
-                <span className={`text-xs font-medium px-2 py-1 rounded ${
-                    book.status === 'Read' ? 'bg-green-50 text-green-700' :
-                        book.status === 'Reading' ? 'bg-yellow-50 text-yellow-700' : 'bg-gray-100 text-gray-600'
-                }`}>
-                  {book.status}
-                </span>
-                            </div>
-                        </div>
+                        <BookCard key={book.id} {...book} />
                     ))}
                 </div>
 

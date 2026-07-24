@@ -14,6 +14,7 @@ export interface PublisherCollection {
 export interface Book {
     id: string;
     title: string;
+    cover: string;
     author: string;
     genre: string;
     status: BookStatus;
@@ -21,5 +22,6 @@ export interface Book {
     publisher: string;
     series?: StorySeries | null;
     collection?: PublisherCollection | null;
-    format: BookFormat;
+    genres: Array<string>;
+    formats: Array<BookFormat>;
 }

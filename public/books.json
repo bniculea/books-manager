@@ -19,7 +19,8 @@
       "name": "Mari Clasici ai Literaturii",
       "volumeNumber": 47
     },
-    "format": "print"
+    "formats": ["print"],
+    "cover": "https://cdn.dc5.ro/img-prod/3547174809-0.png"
   },
   {
     "id": "2",
@@ -41,7 +42,8 @@
       "name": "Mari Clasici ai Literaturii",
       "volumeNumber": 5
     },
-    "format": "print"
+    "formats": ["print"],
+    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg"
   },
   {
     "id": "3",
@@ -63,6 +65,45 @@
       "name": "Mari Clasici ai Literaturii",
       "volumeNumber": 6
     },
-    "format": "print"
+    "formats": ["print"],
+    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg"
+  },
+  {
+    "id": "39",
+    "title": "La rascruce de vanturi",
+    "author": "Emily Brontë",
+    "genres": [
+      "Roman istoric",
+      "Aventura"
+    ],
+    "status": "Unread",
+    "ISBN": "978-6068905594",
+    "publisher": "Rao",
+    "series": null,
+    "collection": {
+      "name": "101 Clasic",
+      "volumeNumber": 65
+    },
+    "formats": ["print", "epub"],
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1537898385i/42066494.jpg"
+  },
+  {
+    "id": "38",
+    "title": "La rascruce de vanturi",
+    "author": "Emily Brontë",
+    "genres": [
+      "Roman istoric",
+      "Aventura"
+    ],
+    "status": "Unread",
+    "ISBN": "978-6068905594",
+    "publisher": "Litera",
+    "series": null,
+    "collection": {
+      "name": "Mari Clasici ai Literaturii",
+      "volumeNumber": 7
+    },
+    "formats": ["print", "epub"],
+    "cover": "https://cdn.litera.ro/media/mf_webp/jpg/media/catalog/product/cache/d0e526443e6c567e1f3090daec22b73f/l/a/la_rascruce_de_vanturi_clasici_.webp"
   }
 ]
