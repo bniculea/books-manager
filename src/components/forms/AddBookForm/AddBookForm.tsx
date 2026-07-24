@@ -1,6 +1,6 @@
 import {ChangeEvent, useState} from "react";
 import {Book} from "../../../types/Book.tsx";
-import {BookStatus} from "../../../constants/books.tsx";
+import {BookFormat, BookStatus} from "../../../constants/books.tsx";
 
 interface AddBookFormProps {
     onSubmit: (bookData: Omit<Book, 'id'>) => void;
@@ -14,6 +14,7 @@ const AddBookForm = (props: AddBookFormProps) => {
     const [author, setAuthor] = useState<string>(props.initialData?.author || '');
     const [genre, setGenre] = useState<string>(props.initialData?.genre || '');
     const [status, setStatus] = useState<BookStatus>(props.initialData?.status || '');
+    const [format, setFormat] = useState<BookFormat>(props.initialData?.format || '');
     // TODO: add all the fields in the form
     // const [isbn, setIsbn] = useState<string>(props.initialData?.isbn || '');
     // const [publisher, setPublisher] = useState<string>(props.initialData?.publisher || '');
@@ -26,7 +27,8 @@ const AddBookForm = (props: AddBookFormProps) => {
             author,
             genre,
             status,
-            title
+            title,
+            format
         })
     }
 
@@ -46,6 +48,10 @@ const AddBookForm = (props: AddBookFormProps) => {
                     <div>
                         <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Genre</label>
                         <input required type="text" placeholder="Fantasy, Sci-Fi, History" className="w-full border p-2 rounded-lg text-sm" value={genre} onChange={e => setGenre(e.target.value)} />
+                    </div>
+                    <div>
+                        <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Format</label>
+                        <input required type="text" placeholder="Epub,Print" className="w-full border p-2 rounded-lg text-sm" value={format} onChange={e => setFormat(e.target.value)} />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">Reading Status</label>
