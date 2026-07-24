@@ -1,12 +1,15 @@
 [
   {
     "id": "1",
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "genre": "Fantasy",
-    "status": "Read",
+    "title": "Dama de pica si alte povestiri",
+    "author": "Alexander Pushkin",
+    "genres": [
+      "Fictiune clasica",
+      "Nuvele"
+    ],
+    "status": "Unread",
     "ISBN": 2321312,
-    "publisher": "Nemira",
+    "publisher": "Litera",
     "series": {
       "name": "Dune",
       "bookNumber": 3,
@@ -14,7 +17,51 @@
     },
     "collection": {
       "name": "Mari Clasici ai Literaturii",
-      "volumeNumber": 84
+      "volumeNumber": 47
+    },
+    "format": "print"
+  },
+  {
+    "id": "2",
+    "title": "Regina Margot I",
+    "author": "Alexandre Dumas",
+    "genres": [
+      "Roman istoric",
+      "Aventura"
+    ],
+    "status": "Unread",
+    "ISBN": 2321312,
+    "publisher": "Litera",
+    "series": {
+      "name": "Regina Margot",
+      "bookNumber": 1,
+      "totalInSeries": 2
+    },
+    "collection": {
+      "name": "Mari Clasici ai Literaturii",
+      "volumeNumber": 5
+    },
+    "format": "print"
+  },
+  {
+    "id": "3",
+    "title": "Regina Margot II",
+    "author": "Alexandre Dumas",
+    "genres": [
+      "Roman istoric",
+      "Aventura"
+    ],
+    "status": "Unread",
+    "ISBN": 2321312,
+    "publisher": "Litera",
+    "series": {
+      "name": "Regina Margot",
+      "bookNumber": 2,
+      "totalInSeries": 2
+    },
+    "collection": {
+      "name": "Mari Clasici ai Literaturii",
+      "volumeNumber": 6
     },
     "format": "print"
   }
