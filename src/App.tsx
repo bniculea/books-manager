@@ -10,7 +10,11 @@ import BookCard from "./components/cards/book-card";
 
 export default function App() {
     const [books, setBooks] = useState<Array<Book>>([]);
-    const [filters, setFilters] = useState<BookFilters>({query: '', format: ''})
+    const [filters, setFilters] = useState<BookFilters>({
+        collections: [],
+        genres: [],
+        languages: [],
+        query: '', formats: []})
     // Form & Auth State
     const [token, setToken] = useState(localStorage.getItem('gh_token') || '');
     const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +49,7 @@ export default function App() {
                 book.author?.toLowerCase().includes(normalizedQuery);
 
             const matchesFormat =
-                !filters.format || book.formats.includes(filters.format);
+                !filters.formats?.length || book.formats.find(format => filters.formats.includes(format));
 
             return matchesQuery && matchesFormat;
         });
@@ -80,7 +84,7 @@ export default function App() {
                         </button>
                     </div>
                 </header>
-                <Search filters={filters} onFilterChange={setFilters} />
+                <Search filters={filters} onFilterChange={setFilters} availableGenres={[]} availableCollections={[]} />
                 {/* Grid View */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {filteredBooks.map(book => (
