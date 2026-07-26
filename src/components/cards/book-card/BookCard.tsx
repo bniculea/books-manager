@@ -1,4 +1,4 @@
-import { BookFormat} from "../../../constants/books.tsx";
+import {BookFormat, Language, LANGUAGE_LABELS} from "../../../constants/books.tsx";
 import {
     BookOpenIcon,
     DevicePhoneMobileIcon,
@@ -8,6 +8,7 @@ interface BookCardProps {
     author: string;
     cover: string;
     formats: Array<BookFormat>;
+    language: Language;
 }
 
 const BookCard = (props: BookCardProps) => {
@@ -39,6 +40,10 @@ const BookCard = (props: BookCardProps) => {
                             PRINT
                         </span>
                     )}
+                </div>
+
+                <div className="inline-flex w-fit items-center gap-1.5 rounded-md border border-gray-200 bg-white/70 px-2 py-0.5 text-xs font-medium text-gray-600">                    <span>{LANGUAGE_LABELS[props.language].flag}</span>
+                    <span className="uppercase">{LANGUAGE_LABELS[props.language].label || 'EN'}</span>
                 </div>
 
             </div>

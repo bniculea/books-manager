@@ -20,7 +20,8 @@
       "volumeNumber": 47
     },
     "formats": ["print"],
-    "cover": "https://cdn.dc5.ro/img-prod/3547174809-0.png"
+    "cover": "https://cdn.dc5.ro/img-prod/3547174809-0.png",
+    "language": "ro"
   },
   {
     "id": "2",
@@ -43,7 +44,8 @@
       "volumeNumber": 5
     },
     "formats": ["print"],
-    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg"
+    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg",
+    "language": "ro"
   },
   {
     "id": "3",
@@ -66,7 +68,8 @@
       "volumeNumber": 6
     },
     "formats": ["print"],
-    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg"
+    "cover": "https://imagini.printrecarti.ro/images/products/originals/29/alexandre-dumas-regina-margot-2-volume-editura-adevarul_28680.jpg",
+    "language": "ro"
   },
   {
     "id": "39",
@@ -85,7 +88,8 @@
       "volumeNumber": 65
     },
     "formats": ["print", "epub"],
-    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1537898385i/42066494.jpg"
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1537898385i/42066494.jpg",
+    "language": "ro"
   },
   {
     "id": "38",
@@ -104,6 +108,24 @@
       "volumeNumber": 7
     },
     "formats": ["print", "epub"],
-    "cover": "https://cdn.litera.ro/media/mf_webp/jpg/media/catalog/product/cache/d0e526443e6c567e1f3090daec22b73f/l/a/la_rascruce_de_vanturi_clasici_.webp"
+    "cover": "https://cdn.litera.ro/media/mf_webp/jpg/media/catalog/product/cache/d0e526443e6c567e1f3090daec22b73f/l/a/la_rascruce_de_vanturi_clasici_.webp",
+    "language": "ro"
+  },
+  {
+    "id": "99",
+    "title": "Unfinished Tales Of Numenor & Middle-Earth",
+    "author": "John Ronald Reuel Tolkien",
+    "genres": [
+      "Fantezie",
+      "Aventura"
+    ],
+    "status": "Unread",
+    "ISBN": "9780261103627",
+    "publisher": "Harper Collins",
+    "series": "The Lord of the Rings",
+    "collection": null,
+    "formats": ["print"],
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1565534731i/797114.jpg",
+    "language": "en"
   }
 ]

@@ -23,6 +23,7 @@ const AddBookForm = (props: AddBookFormProps) => {
     const handleSubmit = (evt: { preventDefault: () => void; }) => {
         evt.preventDefault()
         props.onSubmit({
+            language: 'ro',
             isbn: "",
             publisher: "",
             author,

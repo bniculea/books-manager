@@ -1,4 +1,4 @@
-import {BookFormat, BookStatus} from "../constants/books.tsx";
+import {BookFormat, BookStatus, Language} from "../constants/books.tsx";
 
 export interface StorySeries {
     name: string;
@@ -17,6 +17,7 @@ export interface Book {
     cover: string;
     author: string;
     genres: Array<string>;
+    language: Language;
     status: BookStatus;
     isbn: string;
     publisher: string;

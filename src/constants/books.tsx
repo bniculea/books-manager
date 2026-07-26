@@ -28,3 +28,12 @@ export const BOOK_FORMAT = [
 ]
 
 export type BookFormat = typeof BOOK_FORMAT[number];
+
+// constants/books.ts
+export type Language = 'en' | 'ro' | 'fr';
+
+export const LANGUAGE_LABELS: Record<Language, { label: string; flag: string }> = {
+    en: { label: 'English', flag: '🇬🇧' },
+    ro: { label: 'Română', flag: '🇷🇴' },
+    fr: { label: 'Français', flag: '🇫🇷' },
+};
