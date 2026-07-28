@@ -63,9 +63,9 @@ export default function App() {
                 <header className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div>
                         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight flex items-center gap-2">
-                            <span>📚</span> My Physical Library
+                            <span>📚</span> My Personal Library
                         </h1>
-                        <p className="text-gray-500 text-sm mt-1">Manage, search, and catalog physical books</p>
+                        <p className="text-gray-500 text-sm mt-1">Manage, search, and the catalog with physical and digital books</p>
                     </div>
 
                     <div className="flex gap-3 items-center w-full md:w-auto">
