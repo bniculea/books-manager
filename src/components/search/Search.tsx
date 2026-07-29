@@ -2,6 +2,7 @@ import {BookFormat, Language} from "../../constants/books.tsx";
 import { MagnifyingGlassIcon} from "@heroicons/react/24/solid";
 import {XMarkIcon} from "@heroicons/react/24/outline";
 import styles from "./Search.module.css";
+import FilterSelect from "./FilterSelect.tsx";
 
 export interface BookFilters {
     query: string;
@@ -18,8 +19,7 @@ interface SearchProps {
     availableCollections: Array<string>;
 }
 const Search = (props: SearchProps) => {
-    const {filters, onFilterChange} = props;
-
+    const {filters, availableCollections, availableGenres, onFilterChange} = props;
     return (
         <div>
             <div className={styles.container}>
@@ -43,6 +43,22 @@ const Search = (props: SearchProps) => {
                             <XMarkIcon className={styles.clearSearchIcon} />
                     </button>
                 )}
+            </div>
+            <div className={styles.filtersContainer}>
+                <FilterSelect
+                    availableOptions={availableCollections}
+                    filters={filters}
+                    placeholder={"Collections"}
+                    onFilterChange={onFilterChange}
+                    filterOptionProp="collections"
+                />
+                <FilterSelect
+                    availableOptions={availableGenres}
+                    filters={filters}
+                    placeholder={"Genres"}
+                    onFilterChange={onFilterChange}
+                    filterOptionProp="genres"
+                />
             </div>
         </div>
     )

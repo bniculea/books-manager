@@ -4,6 +4,10 @@
     @apply relative w-full mb-10;
 }
 
+.filtersContainer {
+    @apply flex flex-wrap gap-2 mb-4;
+}
+
 .iconWrapper {
     @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5  text-gray-400;
 }
